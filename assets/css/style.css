@@ -1,0 +1,31 @@
+:root {
+  --border-width: 4.5px;
+}
+
+body {
+  font-family: "Kanit", sans-serif !important;
+}
+
+.main-container {
+  max-width: 800px !important;
+}
+
+.important {
+  border-left: var(--border-width) solid green !important;
+}
+
+.essential {
+  border-left: var(--border-width) solid #ffcc00 !important;
+}
+
+.crucial {
+  border-left: var(--border-width) solid red !important;
+}
+
+.complete {
+  text-decoration: line-through !important;
+}
+
+.complete-grey {
+  border-left: var(--border-width) solid grey !important;
+}

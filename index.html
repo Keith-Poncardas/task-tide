@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>TaskTide</title>
+
+    <!-- Twitter Card metadata -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="TaskTide">
+    <meta name="twitter:image" content="assets/img/og-image.png">
+    <meta name="twitter:description"
+        content="TaskTide - A simple, user-friendly to-do list web app to help you organize and manage your tasks efficiently. Stay productive and keep track of your daily activities with ease.">
+
+    <!-- Open Graph metadata -->
+    <meta property="og:image" content="assets/img/og-image.png">
+    <meta property="og:type" content="website">
+
+    <!-- General description -->
+    <meta name="description"
+        content="TaskTide - A simple, user-friendly to-do list web app to help you organize and manage your tasks efficiently. Stay productive and keep track of your daily activities with ease.">
+
+    <!-- Favicon and touch icon links -->
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="assets/img/180x180.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/32x32.png">
+    <link rel="icon" type="image/png" sizes="180x180" href="assets/img/180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/img/512x512.png">
+
+    <!-- CSS stylesheets -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Web app manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Preconnect to Google Fonts to improve loading performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <!-- Preconnect to Google Fonts static content (requires CORS) -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Google Fonts stylesheet for Kanit font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Animate.css library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+</head>
+
+<body data-bs-theme="dark">
+
+    <div class="container mt-4 main-container mb-5">
+
+        <h1 class="mb-4 fs-2 animate__animated animate__bounceInDown">TaskTide <span class="badge text-bg-info">Dark
+                Mode</span></h1>
+
+        <!-- Task Input Group -->
+        <div class="input-group mb-3">
+            <input type="text" id="taskInput" class="form-control rounded-start" placeholder="Enter a new task..."
+                aria-label="Task input" aria-describedby="addTaskButton" autocomplete="off">
+            <button class="btn btn-outline-secondary rounded-end" type="button" id="addTaskButton"
+                aria-label="Add Task"><i class="fa-solid fa-plus"></i></button>
+            <div class="invalid-feedback">
+                Task description should not exceed 25 characters.
+            </div>
+        </div>
+
+        <!-- Alert Message -->
+        <div id="alertMessage" class="alert alert-danger mt-3 d-none" role="alert"></div>
+
+        <!-- Priority Select Group -->
+        <div class="input-group mb-3" title="Priority Select">
+            <label class="input-group-text" for="prioritySelect"><i class="fa-solid fa-layer-group"></i></label>
+            <select class="form-select" id="prioritySelect" aria-label="Priority Selection">
+                <option value="important" selected>Important</option>
+                <option value="essential">Essential</option>
+                <option value="crucial">Crucial</option>
+            </select>
+        </div>
+
+        <div class="row mt-3">
+            <!-- Search Task Column -->
+            <div class="col-12 col-sm-6 col-md-5 mb-3">
+                <div class="input-group" title="Search Task">
+                    <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></span>
+                    <input type="search" id="searchInput" aria-label="Search" class="form-control"
+                        placeholder="Search Task" autocomplete="off">
+                </div>
+            </div>
+
+            <!-- Filter Task Column -->
+            <div class="col-12 col-sm-6 col-md-5 mb-3">
+                <div class="input-group" title="Filter Task">
+                    <label class="input-group-text" for="filterTask"><i class="fa-solid fa-filter"></i></label>
+                    <select class="form-select" id="filterTask">
+                        <option value="all" selected>All</option>
+                        <option value="completed">Completed</option>
+                        <option value="important">Important</option>
+                        <option value="essential">Essential</option>
+                        <option value="crucial">Crucial</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Clear All Tasks Button -->
+            <div class="col-12 col-md-2 mb-2 text-md-end">
+                <div class="d-grid gap-2">
+                    <button id="clearAllTask" type="button" class="btn btn-outline-danger" title="Clear All Task">Clear
+                        All</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- This div will display an alert message when tasks are already cleared -->
+        <div id="taskCleared" class="alert alert-danger mt-1 d-none" role="alert"></div>
+
+
+        <!-- Task Not Found Message -->
+        <p id="taskNotFound" class="text-center mt-5 d-none text-secondary"></p>
+
+        <!-- No Task Yet Message -->
+        <div id="noTask" class="text-center mt-5 d-none text-secondary"></div>
+
+        <!-- Task List -->
+        <ul id="taskList" class="list-group mt-3"></ul>
+
+    </div>
+    <nav class="navbar fixed-bottom navbar-expand-lg bg-body-tertiary">
+        <div class="container d-flex justify-content-center">
+            <a class="navbar-brand fs-6 text-secondary" href="https://www.facebook.com/kitkat.poncardas"
+                target="_blank">TaskTide By Keith Poncardas.</a>
+        </div>
+
+    </nav>
+
+    <!-- Custom JavaScript file -->
+    <script src="./assets/js/app.js"></script>
+
+    <!-- Popper.js for Bootstrap tooltips and popovers -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+
+    <!-- Bootstrap JavaScript library -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
